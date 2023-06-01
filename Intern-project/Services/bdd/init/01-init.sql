@@ -1,0 +1,7 @@
+CREATE DATABASE msdadatabase;
+
+USE msdadatabase;
+CREATE TABLE table01(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
