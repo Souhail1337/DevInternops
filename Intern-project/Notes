@@ -1,0 +1,9 @@
+Service :
+    Front 
+        Angular/
+    Back
+        java spring boot
+    bdd
+        mysql/ mongodb
+    server:/
+        Nginx/Apach

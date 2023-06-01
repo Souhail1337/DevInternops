@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nginx:
+    build: ./Server/nginx
+    container_name: nginx
+    restart: always
+    env_file:
+      - .env
+    networks:
+      - networks
+    ports:
+      - "443:443"
+    
+networks:
+  networks:
+    driver: bridge
