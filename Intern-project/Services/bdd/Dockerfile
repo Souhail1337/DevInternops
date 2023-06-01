@@ -1,9 +1,9 @@
-FROM mysql:8
+FROM debian:buster
 
-ENV MYSQL_DATABASE=msdatabase
-ENV MYSQL_USER=myuser 
-ENV MYSQL_PASSWORD=myPAss
-ENV MYSQL_ROOT_PASSWORD=rootpass
-
-EXPOSE 3306
-
+RUN apt update -y
+RUN apt upgrade -y
+RUN apt install mariadb-server -y
+RUN apt install -y ufw  iptables 
+RUN ufw allow 3306
+COPY srcs/conf conf 
+COPY srcs/script.sh /script.sh
