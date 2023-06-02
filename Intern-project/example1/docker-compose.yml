@@ -16,7 +16,14 @@ services:
       - 3000:3000
     networks:
       - myProject
-  
+  database:
+    build: 
+      context: ./Database/
+      dockerfile: 'Dockerfile'
+    networks:
+      - myProject
+    ports:
+      - 27017:27017
   networks:
     myProject:
       driver: bridge
