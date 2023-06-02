@@ -1,0 +1,22 @@
+version: '3'
+services:
+  backend:
+    build: 
+      context: ./Back-end/
+      dockerfile: 'Dockerfile'
+    ports:
+      - 4000:4000
+    networks:
+      - myProject
+  frontend:
+    build:
+      context: ./Front-end/
+      dockerfile: 'Dockerfile'
+    ports:
+      - 3000:3000
+    networks:
+      - myProject
+  
+  networks:
+    myProject:
+      driver: bridge
