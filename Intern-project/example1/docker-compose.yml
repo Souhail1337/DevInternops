@@ -26,6 +26,10 @@ services:
       - 27017:27017
     env_file:
       - .env
-  networks:
-    myProject:
-      driver: bridge
+
+volumes:
+  database: {}
+
+networks:
+  myProject:
+    driver: bridge
