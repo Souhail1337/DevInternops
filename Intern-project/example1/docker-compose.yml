@@ -1,8 +1,16 @@
 version: '3'
 services:
+  database:
+    image: mongo:latest
+    networks:
+      - myProject
+    ports:
+      - 27017:27017
+    env_file:
+      - .env
   backend:
-    build: 
-      context: ./Back-end/
+    build:
+      context: ./Backend
       dockerfile: 'Dockerfile'
     ports:
       - 4000:4000
@@ -10,22 +18,13 @@ services:
       - myProject
   frontend:
     build:
-      context: ./Front-end/
+      context: ./Frontend
       dockerfile: 'Dockerfile'
     ports:
       - 3000:3000
+      - 80:80 
     networks:
       - myProject
-  database:
-    build: 
-      context: ./Database/
-      dockerfile: 'Dockerfile'
-    networks:
-      - myProject
-    ports:
-      - 27017:27017
-    env_file:
-      - .env
 
 volumes:
   database: {}

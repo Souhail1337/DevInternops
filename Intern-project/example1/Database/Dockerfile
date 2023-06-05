@@ -1,4 +1,7 @@
-FROM mongo:5.0
+FROM mongo:latest
 
-WORKDIR /data
+COPY mongod.conf /etc/mongod.conf
 
+EXPOSE 27017
+
+CMD ["mongod","--config", "/etc/mongod.conf"]
