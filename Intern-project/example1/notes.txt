@@ -1,0 +1,14 @@
+Dockercompose file :
+ The backend services is built from the ./back-end directory using the dockerfile specified
+ it exposes port 4000 on the host machine which will be maped to port 4000 in the container 
+ 
+ The Front-end service is built from the ./front-end directory using the dockerfile specified
+ it exposes port 3000 on the host machine which will be mapped as well to port 3000 in the container
+
+ the Database service is built from the ./Database directory using the dockerfile specified
+ it doenst expose any ports on the host machine, but port 27017 in the container will be accesible 
+ 
+ the volumes section defines a named volume called database which can be used to persist data related to database service
+
+ the networks section defines a network called myProject with the bridge driver, all the services are connected to this network 
+ allowing them to communicate with each other

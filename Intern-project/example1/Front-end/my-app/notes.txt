@@ -1,0 +1,25 @@
+this Frontend service dockerfile is a multi-stage build configuration for a node.js application
+
+    Step 1 : builder
+        FROM node:14 as builder:
+            this sets the base image to the official node.js 14 image and names this stage as "builder"
+    
+        WORKDIR /app sets the working directory inside the container to /app
+    
+        COPY package*.json ./ COpies the package.json and package-lock.json from host machine to the /app directory in the container
+
+        RUN npm install : install the dependencies define in package.json using npm
+
+        COPY . . Copies all files and directories from the host machine to the curenct directory /app in the container
+
+        RUN npm run build : Executes the build script defined in the package.json, it is usually a custom script that i will made change later on
+
+    Step 2:
+        From node:14 : sets the ase image to the official node.js14 image for the second stage
+        RUN npm install -g serve : install the 'serve' package globally using npm, this package is used to serve the build application
+        EXPOSE 3000 : informs docker that the application insida the container will listen on port 3000
+
+
+Summary:
+    the first stage the dependencies are installed and the application is built.
+    in the second stage the built application is copied and served using the 'serve' package
