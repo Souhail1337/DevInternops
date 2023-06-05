@@ -1,2 +1,3 @@
-node /app/dist/main.js
+#!/bin/sh
+node /app/dist/index.js
 
