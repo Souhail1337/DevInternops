@@ -2,32 +2,38 @@ version: '3'
 services:
   database:
     image: mongo:latest
+    container_name: db_container
+    restart: always
+    volumes:
+      - mongo_db:/data/db
     networks:
       - myProject
-    ports:
-      - 27017:27017
     env_file:
       - .env
   backend:
-    build:
-      context: ./Backend
-      dockerfile: 'Dockerfile'
+    build: ./Backend
     ports:
-      - 4000:4000
+      - 4000:3000
     networks:
       - myProject
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://db_container:27017
+      - DB_NAME=my_db
+      - NAME=COLLEGE_OF_COMPUTING
+    depends_on:
+      - database  
   frontend:
     build:
       context: ./Frontend
       dockerfile: 'Dockerfile'
     ports:
       - 3000:3000
-      - 80:80 
     networks:
       - myProject
 
 volumes:
-  database: {}
+  mongo_db: {}
 
 networks:
   myProject:

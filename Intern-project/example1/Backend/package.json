@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "nest build",
-    "start": "nest start"
+    "build": "node ./src/index.js"
   },
   "author": "",
   "license": "ISC",

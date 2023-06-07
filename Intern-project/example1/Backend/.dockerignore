@@ -1,0 +1,4 @@
+./node_modules 
+Dockerfile
+
+#things we dont want to copy each time we build the container
