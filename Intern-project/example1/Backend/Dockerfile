@@ -1,11 +1,11 @@
-FROM node:14 as builder 
+FROM node:14 
 WORKDIR /app
 
 COPY package*.json .
 
-RUN npm install
-# npm ci = continuis integration
+RUN npm i
 
 COPY . .
+EXPOSE 4000
 # RUN rm -rf /app/node_modules
 CMD ["npm","start"]

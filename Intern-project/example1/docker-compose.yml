@@ -10,10 +10,12 @@ services:
       - myProject
     env_file:
       - .env
+    ports:
+      - 27017:27017
   backend:
     build: ./Backend
     ports:
-      - 4000:3000
+      - 4000:4000
     networks:
       - myProject
     environment:
@@ -29,6 +31,13 @@ services:
       dockerfile: 'Dockerfile'
     ports:
       - 3000:3000
+    networks:
+      - myProject
+  nginx:
+    build: ./Server
+    container_name: nginx
+    ports:
+      - 443:443
     networks:
       - myProject
 
