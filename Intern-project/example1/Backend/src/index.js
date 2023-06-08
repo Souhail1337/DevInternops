@@ -3,13 +3,13 @@ const app = express();
 const mongoose = require('mongoose');
 const port = 4000;
 
-mongoose.connect('localhost:27017',{ 
+mongoose.connect('mongodb://db_container:27017/my_db',{ 
     useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("EEEEEE CONNECTED TO MONGODB");
     })
     .catch((error) =>{
-        console.log('Failed to connect to mongo: ', error);
+        console.log('Failed hhhh to connect to mongo: ', error);
     });
 const exSchema = new mongoose.Schema({
     message: String,

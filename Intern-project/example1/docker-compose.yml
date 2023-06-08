@@ -19,7 +19,7 @@ services:
       - myProject
     environment:
       - PORT=4000
-      - MONGODB_URI=mongodb://db_container:27017
+      - MONGODB_URI=mongodb://db_container:27017/my_db
       - DB_NAME=my_db
       - NAME=COLLEGE_OF_COMPUTING
     depends_on:
