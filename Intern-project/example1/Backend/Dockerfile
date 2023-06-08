@@ -8,4 +8,6 @@ RUN npm i
 COPY . .
 EXPOSE 4000
 # RUN rm -rf /app/node_modules
+
+
 CMD ["npm","start"]
