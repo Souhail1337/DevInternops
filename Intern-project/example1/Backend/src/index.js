@@ -18,7 +18,7 @@ mongoose.connect('mongodb+srv://souhail:souhail@cluster0.0p01gnu.mongodb.net/',o
         console.log("CONNECTED TO MONGODB");
     })
     .catch((error) =>{
-        console.log('Failed hhhh to connect to mongo: ', error);
+        console.log('Failed to connect to mongo: ', error);
     });
     app.set('view engine','ejs');
     app.engine('html',require('ejs').renderFile);

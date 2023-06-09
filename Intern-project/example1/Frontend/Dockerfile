@@ -10,8 +10,6 @@ COPY . .
 
 RUN npm run build
 EXPOSE 3000
-
-
 FROM nginx:latest
 
 RUN rm -rf /usr/share/nginx/html/*
