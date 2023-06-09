@@ -10,7 +10,7 @@ services:
     env_file:
       - .env
     ports:
-      - 27017:27017
+      - 27018:27017
   backend:
     build: ./Backend
     ports:
@@ -19,7 +19,7 @@ services:
       - myProject
     environment:
       - PORT=4000
-      - MONGODB_URI=mongodb://db_container:27017/my_db
+      - MONGODB_URI=mongodb://localhost:27017/
       - DB_NAME=my_db
       - NAME=COLLEGE_OF_COMPUTING
     depends_on:
